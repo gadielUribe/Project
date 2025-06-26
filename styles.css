@@ -1,0 +1,82 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-color: #f8bbd0; /* Fondo rosado claro */
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#main-container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+#heart-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #ff69b4; /* Rosa vibrante */
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    transition: transform 0.2s ease;
+}
+
+#heart-button:hover {
+    transform: scale(1.1);
+}
+
+#heart-button svg {
+    fill: white;
+    width: 60%;
+    height: 60%;
+}
+
+.message {
+    position: absolute;
+    background-color: rgba(255, 105, 180, 0.8); /* Rosa claro con transparencia */
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 80vw; /* Adapta ancho máximo a la pantalla */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    animation: fadeOut 5s linear forwards, moveSideways 5s linear forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes moveSideways {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(20px); }
+}
+
+/* Media query para móviles */
+@media (max-width: 600px) {
+    #heart-button {
+        width: 60px;
+        height: 60px;
+    }
+
+    .message {
+        font-size: 14px;
+        max-width: 90vw;
+    }
+}
