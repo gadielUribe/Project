@@ -26,11 +26,13 @@ function showMessage(message) {
     messageElement.className = 'message';
     messageElement.textContent = message;
 
-    const containerRect = messageContainer.getBoundingClientRect();
-    const buffer = 50; // margen adicional
+    // Usamos el tamaño total de la ventana
+    const buffer = 60;
+    const msgWidth = 200; // Ancho promedio del mensaje (puedes calcularlo dinámicamente si quieres)
+    const msgHeight = 40;
 
-    const maxWidth = containerRect.width - buffer;
-    const maxHeight = containerRect.height - buffer;
+    const maxWidth = window.innerWidth - buffer - msgWidth;
+    const maxHeight = window.innerHeight - buffer - msgHeight;
 
     const randomLeft = Math.random() * maxWidth;
     const randomTop = Math.random() * maxHeight;
@@ -38,7 +40,7 @@ function showMessage(message) {
     messageElement.style.left = `${randomLeft}px`;
     messageElement.style.top = `${randomTop}px`;
 
-    messageContainer.appendChild(messageElement);
+    document.body.appendChild(messageElement);
 
     setTimeout(() => {
         messageElement.remove();
